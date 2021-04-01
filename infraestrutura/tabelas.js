@@ -3,7 +3,7 @@ class Tabelas {
         this.conexao = conexao
 
         this.criarAtendimentos()
-        this.criarPets()
+        this.criarPets()        //já tá chamando essas funções
     }
 
     criarAtendimentos() {
@@ -19,7 +19,7 @@ class Tabelas {
     }
 
 
-    criarPets() {
+    criarPets() {                                                                                //só vai salvar o caminho da imagem aqui                       
         const query = 'CREATE TABLE IF NOT EXISTS Pets (id int NOT NULL AUTO_INCREMENT, nome varchar(50), imagem varchar(200), PRIMARY KEY (id))'
         
         this.conexao.query(query, erro => {
