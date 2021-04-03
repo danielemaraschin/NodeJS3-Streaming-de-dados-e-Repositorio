@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
+
+    const tipo = path.extname(caminho)
     const novoCaminho = `./assets/imagens/${nomeDoArquivo}`
 
     fs.createReadStream(caminho) //leitura da imagem
