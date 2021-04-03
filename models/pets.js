@@ -12,7 +12,7 @@ class Pet {
                 if(erro) {
                     res.status(400).json(erro)
                 }else {
-                res.status(200).json(pet)
+                res.status(200).json(novoPet)
                 }
             })
         })
