@@ -10,13 +10,16 @@ module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
     // pra contar a partir do 1 e nao contar o ponto final antes da extensao
     //se o valor for -1 é que a extensao nao está dentro do array de tiposValidos
 
-    if (tipoEhValido === -1) {
-        console.log('Erro! Tipo de imagem inválida.')
-    } else {
+    if (tipoEhValido) {
         const novoCaminho = `./assets/imagens/${nomeDoArquivo}${tipo}`
 
         fs.createReadStream(caminho) //leitura da imagem
             .pipe(fs.createWriteStream(novoCaminho))//escrita da imagem
             .on('finish', () => callbackImagemCriada(erro, novoCaminho)) //chama evento e avisa que foi feito
+    }else{
+        const erro = 'Tipo inválido'
+        console.log('Erro! Tipo de imagem inválida.')
+        callbackImagemCriada(erro)
+    
     }
 }
