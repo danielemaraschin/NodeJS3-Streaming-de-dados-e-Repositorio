@@ -5,9 +5,9 @@ class Pet {
     adiciona(pet, res) {
         const query = 'INSERT INTO Pets SET ?'
         //caminho da imagem, nome do pet = do arquivo, funcao callBack
-        uploadDeArquivo(pet.imagem, pet.nome, (novoCaminho) => {
+        uploadDeArquivo(pet.imagem, pet.nome, (erro, novoCaminho) => {
 
-            if (erro) {
+            if(erro) {
                 res.status(400).json({erro})
             } else {
                 const novoPet = { nome: pet.nome, imagem: novoCaminho }

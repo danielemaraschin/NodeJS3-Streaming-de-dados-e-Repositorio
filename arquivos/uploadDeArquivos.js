@@ -15,11 +15,10 @@ module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
 
         fs.createReadStream(caminho) //leitura da imagem
             .pipe(fs.createWriteStream(novoCaminho))//escrita da imagem
-            .on('finish', () => callbackImagemCriada(erro, novoCaminho)) //chama evento e avisa que foi feito
+            .on('finish', () => callbackImagemCriada(false, novoCaminho)) //chama evento e avisa que foi feito
     }else{
         const erro = 'Tipo inválido'
         console.log('Erro! Tipo de imagem inválida.')
         callbackImagemCriada(erro)
-    
     }
 }
