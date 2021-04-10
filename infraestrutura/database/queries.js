@@ -14,14 +14,4 @@ const executaQuery = (query, parametros = '') => {
 
 }
 
-
-
-/** */
-conexao.query(sql, [valores, id], (erro, resultados) => {
-    if (erro) {
-        res.status(400).json(erro)
-    } else {
-        res.status(200).json({ ...valores, id })
-    }
-})
-}
+module.exports = executaQuery
