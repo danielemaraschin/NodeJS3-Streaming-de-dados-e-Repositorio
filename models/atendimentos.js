@@ -30,8 +30,6 @@ class Atendimento {
             res.status(400).json(erros)
         } else {
             const atendimentoDatado = {...atendimento, dataCriacao, data}
-
-            const sql = 'INSERT INTO Atendimentos SET ?'
     
             conexao.query(sql, atendimentoDatado, (erro, resultados) => {
                 if(erro) {
