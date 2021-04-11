@@ -11,4 +11,4 @@ class Atendimento {
     }
 }
 
-module.exports = new Atendimento(0)
+module.exports = new Atendimento()

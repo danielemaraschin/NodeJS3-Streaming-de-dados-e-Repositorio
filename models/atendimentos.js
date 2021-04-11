@@ -1,6 +1,7 @@
 const axios = require('axios')
 const moment = require('moment')
 const conexao = require('../infraestrutura/database/conexao')
+const repositorio = require('../repositorios/atendimento')
 
 class Atendimento {
     adiciona(atendimento, res) {
@@ -31,6 +32,7 @@ class Atendimento {
         } else {
             const atendimentoDatado = {...atendimento, dataCriacao, data}
     
+            return repositorio.adiciona(atendimentoDatado)
             conexao.query(sql, atendimentoDatado, (erro, resultados) => {
                 if(erro) {
                     res.status(400).json(erro)
