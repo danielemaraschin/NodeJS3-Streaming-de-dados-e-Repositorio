@@ -37,16 +37,8 @@ class Atendimento {
                     const id = resultados.insertId
                     return ({ ...atendimento, id }) //controller vai pegar isso que é a proxima coisa q estamos retornando
                 })
-            conexao.query(sql, atendimentoDatado, (erro, resultados) => {
-                if (erro) {
-                    res.status(400).json(erro)
-                } else {
-                    const id = resultados.insertId
-                    res.status(201).json({ ...atendimento, id })
-                }
-            })
         }
-            
+
     }
 
     lista(res) {
