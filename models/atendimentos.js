@@ -4,7 +4,7 @@ const conexao = require('../infraestrutura/database/conexao')
 const repositorio = require('../repositorios/atendimento')
 
 class Atendimento {
-    adiciona(atendimento, res) {
+    adiciona(atendimento) {
         const dataCriacao = moment().format('YYYY-MM-DD HH:MM:SS')
         const data = moment(atendimento.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
 
