@@ -1,5 +1,4 @@
 const conexao = require('./conexao')
-
 //parametros vazio pq nem todas as funcoes recebem parametros
 const executaQuery = (query, parametros = '') => {
     return new Promise((resolve, reject) => {
