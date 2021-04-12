@@ -27,18 +27,17 @@ class Atendimento {
         const erros = validacoes.filter(campo => !campo.valido)
         const existemErros = erros.length
 
-        if (existemErros) {
-            res.status(400).json(erros)
+        if (existemErros) { //essa promise so seria pro reject, pros erros pq a resolve está no .then
+            return new Promise((resolve, reject) => reject)
         } else {
             const atendimentoDatado = { ...atendimento, dataCriacao, data }
-
+            //retornando a promessa 
             return repositorio.adiciona(atendimentoDatado)
                 .then(resultados => {
                     const id = resultados.insertId
                     return ({ ...atendimento, id }) //controller vai pegar isso que é a proxima coisa q estamos retornando
                 })
         }
-
     }
 
     lista(res) {
