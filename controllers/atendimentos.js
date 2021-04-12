@@ -2,7 +2,12 @@ const Atendimento = require('../models/atendimentos')
 
 module.exports = app => {
     app.get('/atendimentos', (req, res) => {
-        Atendimento.lista(res)
+        Atendimento.lista()
+            .then(resultados => res.status(200).json(resultados))
+            .catch(erros => res.status(400).json(erros))
+                    //status 200 é o padrao, pode nao colocar que o codigo vai ler 200 igual
+                    // .then(resultados => res.json(resultados))  <= igual ao codigo que cita status 200
+
     })
 
     app.get('/atendimentos/:id', (req, res) => {
