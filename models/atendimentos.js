@@ -46,7 +46,7 @@ class Atendimento {
                 }
             })
         }
-
+            
     }
 
     lista(res) {

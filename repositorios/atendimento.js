@@ -7,7 +7,7 @@ class Atendimento {
     //o que precisamos adicionar é o atendimento então é o unico parametro q precisamos ter
     adiciona(atendimento) {
         const sql = 'INSERT INTO Atendimentos SET ?'
-        return query( sql, atendimento)
+        return query( sql, atendimento) //return pq nao trabalharemos com ela aqui, quem chamar essa funcao q vai trabalhar com ela
     }
 }
 
