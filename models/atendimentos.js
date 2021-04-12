@@ -8,8 +8,13 @@ class Atendimento {
 
         this.dataEhValida = ({data, dataCriacao}) => moment(data).isSameOrAfter(dataCriacao)
         this.clienteEhValido = (tamanho) => tamanho >= 5
-
+        this.valida = (parametros => {this.validacoes.filter(campo => { //filter sempre booleano
+            const {nome} = campo //nome do campo
+            const parametro = parametros[nome] //o parametro q tem esse campo
+            
+            return !campo.valido(parametro)
         })
+
         this.validacoes = [
             {
                 nome: 'data',
@@ -35,7 +40,7 @@ class Atendimento {
 
         }
         
-        const erros = validacoes.filter(campo => !campo.valido)
+        const erros = this.valida(parametros)
         const existemErros = erros.length
 
         if (existemErros) { //essa promise so seria pro reject, pros erros pq a resolve está no .then
